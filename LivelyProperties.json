@@ -1,0 +1,66 @@
+{
+  "background": {
+    "type": "folderDropdown",
+    "value": "background.jpg",
+    "text": "background",
+    "filter": "*.png|*.jpg",
+    "folder": "src"
+  },
+  "model": {
+    "type": "folderDropdown",
+    "value": "rice_pro_t03.model3.json",
+    "text": "Live2d Model",
+    "filter": "*.model3.json",
+    "folder": "src/runtime"
+  },
+  "x": {
+    "text": "Live2d x",
+    "type": "textbox",
+    "value": "-10"
+  },
+  "y": {
+    "text": "Live2d y",
+    "type": "textbox",
+    "value": "45"
+  },
+  "size": {
+    "text": "Live2d size",
+    "type": "textbox",
+    "value": "0.15"
+  },
+  "motionfrequency": {
+    "text": "motion frequency",
+    "type": "textbox",
+    "value": "0.075"
+  },
+  "particleamount": {
+    "text": "particle amount",
+    "type": "textbox",
+    "value": "120"
+  },
+  "particlesizemin": {
+    "text": "particle size min",
+    "type": "textbox",
+    "value": "0.03"
+  },
+  "particlesizemax": {
+    "text": "particle size max",
+    "type": "textbox",
+    "value": "0.06"
+  },
+  "sleep": {
+    "text": "inactive time for sleep",
+    "type": "textbox",
+    "value": "300"
+  },
+  "particlespeedmin": {
+    "text": "particle speed min",
+    "type": "textbox",
+    "value": "0.3"
+  },
+  "particlespeedmax": {
+    "text": "particle speed max",
+    "type": "textbox",
+    "value": "0.5"
+  }
+}

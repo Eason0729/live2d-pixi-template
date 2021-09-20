@@ -1,0 +1,1 @@
+The example Live2D models, Rice Glassfield, are redistributed under Live2D's Free Material License.

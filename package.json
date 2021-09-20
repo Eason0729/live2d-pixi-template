@@ -1,0 +1,17 @@
+{
+  "name": "live2d-pixi-template",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^4.3.2",
+    "vite": "^2.5.4"
+  },
+  "dependencies": {
+    "pixi-live2d-display": "^0.3.1",
+    "pixi.js": "5.3.10"
+  }
+}

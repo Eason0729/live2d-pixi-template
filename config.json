@@ -1,0 +1,15 @@
+{
+    "char": {
+      "x": -5,
+      "y": 6,
+      "scale": 55,
+      "arr": ["mingshi"],
+      "sound": [0]
+    },
+    "motion": {
+      "frequency": 20,
+      "delta": 10
+    },"particle":{
+      "amount":100
+    }
+  }
