@@ -22,7 +22,7 @@ For detailed tutorial, please read [setup.md](/setup.md).
 ## Cubism
 
 Cubism is the name of Live2D SDK. In here we need web SDK. So far there is mainly three version 2.1, 3 and 4.
-This project only support version 3 and 4.
+This project only test under version 3 and 4.
 In order to run wallpaper smoothly, you will need to download web SDK yourself.
 
 - Cubism 4(or 3) 
