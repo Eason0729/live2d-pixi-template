@@ -1,5 +1,7 @@
 # live2d-pixi-template
 
+This is a wallpaper project, allow you to custiomize and use the live2d model you choosed.
+<!--lack of short intro-->
 The project require [lively wallpaper](https://rocksdanister.github.io/lively/).
 
 ## Setup
