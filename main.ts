@@ -7,9 +7,9 @@ import {
 } from "pixi.js";
 import "/live2dcubismcore/live2dcubismcore";
 // import "/live2dcubismcore/live2dcubismcore.d.ts";
-import { Live2DModel } from "pixi-live2d-display/lib/cubism4.js";
+import { Live2DModel } from "pixi-live2d-display";
 import { Ticker, TickerPlugin } from "@pixi/ticker";
-import { InteractionManager } from "@pixi/interaction";
+import { InteractionManager } from "@pixi/interaction"; 
 
 var IsDev = false,
   inited = false,
