@@ -1,4 +1,4 @@
-1. Download the [latest release](/releases) and unzipped it.
+1. Download the [latest release](https://github.com/Eason0729/live2d-pixi-template/releases) and unzipped it.
 
 2. Download `live2dcubismcore.min.js` from their [website](https://www.live2d.com/download/cubism-sdk/download-web/) and store it under `<project root folder path>/live2dcubismcore/`.
 
