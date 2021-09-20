@@ -11,6 +11,12 @@ In short, you will need
 
 For detailed tutorial, please read [setup.md](/setup.md).
 
+## preview
+
+![img](https://i.imgur.com/UXUWL9S.png)
+
+![img](https://i.imgur.com/YOzyM7W.png)
+
 ## Cubism
 
 Cubism is the name of Live2D SDK. In here we need web SDK. So far there is mainly three version 2.1, 3 and 4.
