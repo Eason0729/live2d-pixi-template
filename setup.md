@@ -25,3 +25,5 @@
 Click on browse button and select the `index.html` file
 
 ![img](https://i.imgur.com/vlmGUjV.png)
+
+6. right click on the wallpaper to customize the wallpaper

@@ -17,7 +17,7 @@ For detailed tutorial, please read [setup.md](/setup.md).
 
 ![img](https://i.imgur.com/UXUWL9S.png)
 
-![img](https://i.imgur.com/YOzyM7W.png)
+![img](https://i.imgur.com/BwLCgLI.png)
 
 ## Cubism
 
@@ -42,6 +42,6 @@ The PIXIJS library was under [LICENSE](https://raw.githubusercontent.com/pixijs/
 
 The pixi-live2d-display framework was under [LICENSE](https://raw.githubusercontent.com/guansss/pixi-live2d-display/master/LICENSE), and [github repository](https://github.com/guansss/pixi-live2d-display)
 
-## example Live2D models
+## example Live2D model
 
-The example Live2D models, Rice Glassfield, are redistributed under Live2D's [Free Material License](https://www.live2d.jp/en/terms/live2d-free-material-license-agreement/).
+The example Live2D model, Rice Glassfield, are redistributed under Live2D's [Free Material License](https://www.live2d.jp/en/terms/live2d-free-material-license-agreement/).

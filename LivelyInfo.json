@@ -1,7 +1,6 @@
 {
-    "AppVersion": "1.0.3",
+    "AppVersion": "0.0.0",
     "Title": "live2-pixi-template",
-    "Preview": "fluid_preview.gif",
     "Desc": "Live2d Cubism 3.0^ model display with simple particle effect",
     "Author": "Eason",
     "Contact": "Easonqq0000@googlemail.com",
