@@ -1,13 +1,12 @@
 import { Application } from "pixi.js";
 import "/live2dcubismcore/live2dcubismcore";
-// import "/live2dcubismcore/live2dcubismcore.d.ts";
 import { Live2DModel } from "pixi-live2d-display";
 import { Ticker, TickerPlugin } from "@pixi/ticker";
 import background from "/utils/background";
 import particle from "/utils/particle";
 import character from "/utils/character";
 
-const IsDev = true;
+const IsDev = false;
 var app: Application = new Application({
   view: document.querySelector("canvas") as HTMLCanvasElement,
   resolution: 1,
@@ -72,7 +71,7 @@ if (IsDev)
     livelyPropertyListener("particle_amount", "120");
     livelyPropertyListener("particle_size_min", "0.03");
     livelyPropertyListener("particle_size_max", "0.06");
-    livelyPropertyListener("particle_speed_min", "0.3");
-    livelyPropertyListener("particle_speed_max", "0.5");
-    livelyPropertyListener("sleep", "5");
+    livelyPropertyListener("particle_speed_min", "5");
+    livelyPropertyListener("particle_speed_max", "9");
+    livelyPropertyListener("sleep", "120");
   }, 500);
