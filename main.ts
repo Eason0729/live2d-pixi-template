@@ -7,6 +7,7 @@ import background from "/utils/background";
 import particle from "/utils/particle";
 import character from "/utils/character";
 
+const IsDev = true;
 var app: Application = new Application({
   view: document.querySelector("canvas") as HTMLCanvasElement,
   resolution: 1,
@@ -40,7 +41,7 @@ character.init(app);
 
 function livelyPropertyListener(name: string, value: string) {
   // console.log(...arguments);
-  var path = name.split(".");
+  var path = name.split("_");
   switch (path[0]) {
     case "background":
       background.setBackground(value);
@@ -58,20 +59,20 @@ function livelyPropertyListener(name: string, value: string) {
 }
 window.livelyPropertyListener = livelyPropertyListener;
 // if (IsDev) entry();
-
-setTimeout(() => {
-  livelyPropertyListener("background", "src/background.jpg");
-  livelyPropertyListener(
-    "character.model",
-    "src/runtime/rice_pro_t03.model3.json"
-  );
-  livelyPropertyListener("character.x", "-10");
-  livelyPropertyListener("character.y", "45");
-  livelyPropertyListener("character.size", "0.15");
-  livelyPropertyListener("particle.amount", "120");
-  livelyPropertyListener("particle.size.min", "0.03");
-  livelyPropertyListener("particle.size.max", "0.06");
-  livelyPropertyListener("particle.speed.min", "0.3");
-  livelyPropertyListener("particle.speed.max", "0.5");
-  livelyPropertyListener("sleep", "5");
-}, 500);
+if (IsDev)
+  setTimeout(() => {
+    livelyPropertyListener("background", "src/background.jpg");
+    livelyPropertyListener(
+      "character_model",
+      "src/runtime/rice_pro_t03.model3.json"
+    );
+    livelyPropertyListener("character_x", "-10");
+    livelyPropertyListener("character_y", "45");
+    livelyPropertyListener("character_size", "0.15");
+    livelyPropertyListener("particle_amount", "120");
+    livelyPropertyListener("particle_size_min", "0.03");
+    livelyPropertyListener("particle_size_max", "0.06");
+    livelyPropertyListener("particle_speed_min", "0.3");
+    livelyPropertyListener("particle_speed_max", "0.5");
+    livelyPropertyListener("sleep", "5");
+  }, 500);

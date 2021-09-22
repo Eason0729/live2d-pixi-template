@@ -1,16 +1,16 @@
 import { Application } from "pixi.js";
 import { Live2DModel } from "pixi-live2d-display";
 var config = {
-  x: -10,
-  y: 45,
-  size: 0.15,
-  model: "/src/runtime/rice_pro_t03.model3.json",
-  frequency: 0.075,
-};
-var live2dSprite: Live2DModel;
-var intervalId: number;
-var MotionList: string[] = [];
-var app: Application;
+    x: -10,
+    y: 45,
+    size: 0.15,
+    model: "/src/runtime/rice_pro_t03.model3.json",
+    frequency: 0.075,
+  },
+  live2dSprite: Live2DModel,
+  intervalId: number,
+  MotionList: string[] = [],
+  app: Application;
 interface SingleMotion {
   File: string;
   Sound?: string;
