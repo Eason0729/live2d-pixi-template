@@ -10,7 +10,9 @@ var config = {
   live2dSprite: Live2DModel,
   intervalId: number,
   MotionList: string[] = [],
-  app: Application;
+  app: Application,
+  Queue: configEvent[] = [],
+  configEventing: "doing" | "empty" = "empty";
 interface SingleMotion {
   File: string;
   Sound?: string;
@@ -19,9 +21,6 @@ interface configEvent {
   name: string;
   value: string;
 }
-var Queue: configEvent[] = [],
-  configEventing: "doing" | "empty" = "empty";
-
 export default {
   init(app_: Application) {
     app = app_;
@@ -49,10 +48,12 @@ export default {
     this.configQueue();
   },
   async configQueue(): Promise<boolean> {
+    //dealing with queue
     if (configEventing != "empty") return false;
     if (Queue.length == 0) return true;
     configEventing = "doing";
     let cur: configEvent = Queue.pop();
+    //dealing with action
     let name = cur.name,
       value = cur.value;
     if (name == "model") {
@@ -72,13 +73,20 @@ export default {
         break;
       case "frequency":
         if (intervalId) clearInterval(intervalId);
-        setInterval(() => {
-          let i = Math.floor(MotionList.length * Math.random());
-          live2dSprite.motion(MotionList[i]);
-        }, 1000 / +value);
+        setInterval(this.randomMotion, 1000 / +value);
     }
+    //end session
     configEventing = "empty";
     this.configQueue();
+    return true;
+  },
+  randomMotion(): Promise<boolean> {
+    let i = Math.floor(MotionList.length * Math.random());
+    return live2dSprite.motion(MotionList[i]);
+  },
+  async forceMotion(): Promise<boolean> {
+    if (!live2dSprite) return false;
+    await this.randomMotion();
     return true;
   },
 };

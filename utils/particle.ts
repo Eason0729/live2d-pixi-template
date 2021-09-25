@@ -1,17 +1,17 @@
 import { Application, ParticleContainer, Sprite } from "pixi.js";
-var app: Application,
+interface SnowsDetail {
+  sprite: Sprite;
+  velocity: number;
+}
+var Snows: SnowsDetail[] = [],
+  waitingForConfig: "waiting" | "empty" = "empty",
+  app: Application,
   config = {
     amount: 120,
     size: { min: 0.03, max: 0.06 },
     speed: { min: 0.3, max: 0.5 },
   },
   SnowContainer: ParticleContainer;
-interface SnowsDetail {
-  sprite: Sprite;
-  velocity: number;
-}
-var Snows: SnowsDetail[] = [],
-  waitingForConfig: "waiting" | "empty" = "empty";
 
 function GenSnow(): Sprite {
   let circle = Sprite.from("/src/circle.png");
@@ -36,6 +36,10 @@ export default {
       });
     });
   },
+  /**
+   * @function reset
+   * delete SnowContainer(ParticleContainer), and recreate one
+   */
   reset() {
     console.log(config);
     //if exist, delete it

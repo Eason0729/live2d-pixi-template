@@ -6,7 +6,7 @@ import background from "/utils/background";
 import particle from "/utils/particle";
 import character from "/utils/character";
 
-const IsDev = false;
+const IsDev = true;
 var app: Application = new Application({
   view: document.querySelector("canvas") as HTMLCanvasElement,
   resolution: 1,
@@ -37,6 +37,11 @@ Live2DModel.registerTicker(Ticker);
 background.init(app);
 particle.init(app);
 character.init(app);
+
+//do motion onclick
+document.documentElement.addEventListener("click", async function () {
+  if (!(await character.forceMotion())) console.warn("random motion failed");
+});
 
 function livelyPropertyListener(name: string, value: string) {
   // console.log(...arguments);
