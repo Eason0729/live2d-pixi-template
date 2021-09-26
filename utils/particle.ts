@@ -36,10 +36,6 @@ export default {
       });
     });
   },
-  /**
-   * @function reset
-   * delete SnowContainer(ParticleContainer), and recreate one
-   */
   reset() {
     console.log(config);
     //if exist, delete it

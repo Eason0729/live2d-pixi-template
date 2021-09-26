@@ -41,7 +41,11 @@ character.init(app);
 document.documentElement.addEventListener("click", async function () {
   if (!(await character.forceMotion())) console.warn("random motion failed");
 });
+//The promise seem to reslove just right after getting ".motion.json" file.
+//In order not to interput the previous motion, new feature in pixi-live2d-display need to be added.
+//I will just leave it here.
 
+//handler of lively wallpaper's property
 function livelyPropertyListener(name: string, value: string) {
   // console.log(...arguments);
   var path = name.split("_");
