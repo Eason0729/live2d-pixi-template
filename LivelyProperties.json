@@ -36,7 +36,7 @@
   "particle_amount": {
     "text": "particle amount",
     "type": "textbox",
-    "value": "80"
+    "value": "120"
   },
   "particle_size_min": {
     "text": "particle size min",
@@ -52,12 +52,12 @@
   "particle_speed_min": {
     "text": "particle speed min",
     "type": "textbox",
-    "value": "4"
+    "value": "5"
   },
   "particle_speed_max": {
     "text": "particle speed max",
     "type": "textbox",
-    "value": "7"
+    "value": "9"
   },
   "sleep": {
     "text": "inactive time for sleep",

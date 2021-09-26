@@ -6,7 +6,6 @@ import background from "/utils/background";
 import particle from "/utils/particle";
 import character from "/utils/character";
 
-const IsDev = true;
 var app: Application = new Application({
   view: document.querySelector("canvas") as HTMLCanvasElement,
   resolution: 1,
@@ -33,7 +32,7 @@ document.addEventListener("mousemove", () => {
 Application.registerPlugin(TickerPlugin);
 Live2DModel.registerTicker(Ticker);
 
-//init managers
+//init utils
 background.init(app);
 particle.init(app);
 character.init(app);
@@ -62,21 +61,24 @@ function livelyPropertyListener(name: string, value: string) {
   }
 }
 window.livelyPropertyListener = livelyPropertyListener;
-// if (IsDev) entry();
-if (IsDev)
-  setTimeout(() => {
-    livelyPropertyListener("background", "src/background.jpg");
-    livelyPropertyListener(
-      "character_model",
-      "src/runtime/rice_pro_t03.model3.json"
+
+//DEV ONLY
+if (import.meta.env.MODE == "development")
+  setTimeout(async function () {
+    interface LivelyPropertie {
+      type: "folderDropdown" | "textbox";
+      value: string;
+      text: string;
+      filter: any;
+      folder?: string;
+    }
+    let properties = await fetch("/LivelyProperties.json").then((x) =>
+      x.json()
     );
-    livelyPropertyListener("character_x", "-10");
-    livelyPropertyListener("character_y", "45");
-    livelyPropertyListener("character_size", "0.15");
-    livelyPropertyListener("particle_amount", "120");
-    livelyPropertyListener("particle_size_min", "0.03");
-    livelyPropertyListener("particle_size_max", "0.06");
-    livelyPropertyListener("particle_speed_min", "5");
-    livelyPropertyListener("particle_speed_max", "9");
-    livelyPropertyListener("sleep", "120");
+    function getValue(inp: LivelyPropertie): string {
+      if (inp.type == "folderDropdown") return inp.folder + "/" + inp.value;
+      return inp.value;
+    }
+    for (let key in properties)
+      livelyPropertyListener(key, getValue(properties[key]));
   }, 500);
