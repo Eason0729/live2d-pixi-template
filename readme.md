@@ -11,7 +11,9 @@ In short, you will need
 2.  Download the release of this project.
 3.  Download and install Cubism web SDK.
 
-For detailed tutorial, please read [setup.md](/setup.md).
+For detailed tutorial, please read [setup.md](/markdown/setup.md).
+
+For development tutorial, please read [setup.md](/markdown/dev.md).
 
 ## preview
 
