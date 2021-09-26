@@ -13,7 +13,7 @@ In short, you will need
 
 For detailed tutorial, please read [setup.md](/markdown/setup.md).
 
-For development tutorial, please read [setup.md](/markdown/dev.md).
+For development tutorial, please read [dev.md](/markdown/dev.md).
 
 ## preview
 
