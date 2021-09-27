@@ -16,17 +16,17 @@
   "character_x": {
     "text": "Live2d x",
     "type": "textbox",
-    "value": "-10"
+    "value": "-150"
   },
   "character_y": {
     "text": "Live2d y",
     "type": "textbox",
-    "value": "45"
+    "value": "40"
   },
   "character_size": {
     "text": "Live2d size",
     "type": "textbox",
-    "value": "0.15"
+    "value": "0.35"
   },
   "character_frequency": {
     "text": "motion frequency",

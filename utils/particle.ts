@@ -37,7 +37,6 @@ export default {
     });
   },
   reset() {
-    console.log(config);
     //if exist, delete it
     if (SnowContainer) {
       SnowContainer.parent.removeChild(SnowContainer);
