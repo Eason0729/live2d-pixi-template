@@ -4,7 +4,8 @@ import { Live2DModel } from "pixi-live2d-display";
 import { Ticker, TickerPlugin } from "@pixi/ticker";
 import background from "/utils/background";
 import particle from "/utils/particle";
-import character from "/utils/character";
+import live2dv from "/utils/live2dv";
+// import spinev from "/utils/spinev";
 
 var app: Application = new Application({
   view: document.querySelector("canvas") as HTMLCanvasElement,
@@ -35,11 +36,11 @@ Live2DModel.registerTicker(Ticker);
 //init utils
 background.init(app);
 particle.init(app);
-character.init(app);
+live2dv.init(app);
 
 //do motion onclick
 document.documentElement.addEventListener("click", async function () {
-  if (!(await character.forceMotion())) console.warn("random motion failed");
+  if (!(await live2dv.forceMotion())) console.warn("random motion failed");
 });
 //The promise seem to reslove just right after getting ".motion.json" file.
 //In order not to interput the previous motion, new feature in pixi-live2d-display need to be added.
@@ -54,7 +55,7 @@ function livelyPropertyListener(name: string, value: string) {
       background.setBackground(value);
       break;
     case "character":
-      character.setConfig(path[1], value);
+      live2dv.setConfig(path[1], value);
       break;
     case "particle":
       particle.setConfig(path.slice(1).join("."), value);

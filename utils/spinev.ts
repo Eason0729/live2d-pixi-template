@@ -1,5 +1,5 @@
-import { Application } from "pixi.js";
-import { Live2DModel } from "pixi-live2d-display";
+import { Spine } from "pixi-spine";
+import { Application, Sprite } from "pixi.js";
 var config = {
     x: -10,
     y: 45,
@@ -7,7 +7,7 @@ var config = {
     model: "/src/runtime/rice_pro_t03.model3.json",
     frequency: 0.075,
   },
-  live2dSprite: Live2DModel,
+  spineSprite: Sprite&Spine,
   intervalId: number,
   MotionList: string[] = [],
   app: Application,
@@ -25,22 +25,33 @@ export default {
   init(app_: Application) {
     app = app_;
   },
+  swap(): boolean {
+    if (spineSprite) {
+      spineSprite.parent.removeChild(spineSprite);
+      return true;
+    }
+    return false;
+  },
   async setModel(path: string) {
     //if exist, remove it.
-    if (live2dSprite) live2dSprite.parent.removeChild(live2dSprite);
+    if (spineSprite) spineSprite.parent.removeChild(spineSprite);
     //load Sprite
-    live2dSprite = await Live2DModel.from(path);
-    //list motion for further handling
-    var modelJson = await fetch(path).then((x) => x.clone().json());
-    let motions: SingleMotion[] = modelJson.FileReferences.Motions;
-    for (let key in motions)
-      if (key.toString().toLowerCase() != "idle") MotionList.push(key);
-    //insert child
-    app.stage.addChild(live2dSprite);
+    app.loader.add("spine", path).load(function (loader, resources) {
+      spineSprite = new Spine(resources.spine.spineData);
+      app.stage.addChild(spineSprite);
+      // if (spineSprite.state.hasAnimation('run')) {
+      //     // run forever, little boy!
+      //     spineSprite.state.setAnimation(0, 'run', true);
+      //     // dont run too fast
+      //     spineSprite.state.timeScale = 0.1;
+      // }
+      // app.start();
+    });
+
     //load inheritary config
-    live2dSprite.x = config.x;
-    live2dSprite.y = config.y;
-    live2dSprite.scale.set(config.size);
+    spineSprite.x = config.x;
+    spineSprite.y = config.y;
+    // spineSprite.scale.set(config.size);
   },
   setConfig(name: string, value: string) {
     let cur: configEvent = { name, value };
@@ -63,13 +74,13 @@ export default {
     config[name] = +value;
     switch (name) {
       case "x":
-        live2dSprite.x = +value;
+        spineSprite.x = +value;
         break;
       case "y":
-        live2dSprite.y = +value;
+        spineSprite.y = +value;
         break;
       case "size":
-        live2dSprite.scale.set(+value);
+        // spineSprite.scale.set(+value);
         break;
       case "frequency":
         if (intervalId) clearInterval(intervalId);
@@ -82,10 +93,11 @@ export default {
   },
   randomMotion(): Promise<boolean> {
     let i = Math.floor(MotionList.length * Math.random());
-    return live2dSprite.motion(MotionList[i]);
+    // return spineSprite.motion(MotionList[i]);
+    return Promise.resolve(true);
   },
   async forceMotion(): Promise<boolean> {
-    if (!live2dSprite) return false;
+    if (!spineSprite) return false;
     await this.randomMotion();
     return true;
   },

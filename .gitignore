@@ -1,9 +1,9 @@
 node_modules
 .DS_Store
-dist
+/dist
 dist-ssr
 *.local
 live2dcubismcore
-yichui_2
-.vscode
-note.txt
+/.vscode
+/note.txt
+/src/test
