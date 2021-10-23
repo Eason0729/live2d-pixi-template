@@ -15,7 +15,7 @@ var app: Application = new Application({
   height: window.innerHeight,
 });
 
-//base config
+//basic config
 var config = { sleep: 120 * 1000 };
 
 //sleep
@@ -77,7 +77,7 @@ if (import.meta.env.MODE == "development")
       filter: any;
       folder?: string;
     }
-    let properties = await fetch("/LivelyProperties.json").then((x) =>
+    let properties = await fetch("/src/test/LivelyProperties.json").then((x) =>
       x.json()
     );
     function getValue(inp: LivelyPropertie): string {
