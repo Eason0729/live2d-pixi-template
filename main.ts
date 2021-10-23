@@ -87,3 +87,6 @@ if (import.meta.env.MODE == "development")
     for (let key in properties)
       livelyPropertyListener(key, getValue(properties[key]));
   }, 500);
+
+import calculator from "/utils/calculator";
+calculator.init(document.documentElement);
